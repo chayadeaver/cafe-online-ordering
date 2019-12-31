@@ -1,8 +1,9 @@
 class CreateItems < ActiveRecord::Migration
   def change
     create_table :items do |t|
-
-      t.timestamps null: false
+      t.string :title
+      t.text :description
+      t.float :price
     end
   end
 end
