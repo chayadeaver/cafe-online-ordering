@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
 
   # GET: /items
   get "/items" do
-    erb :"/items/index.html"
+    erb :"/items/index"
   end
 
   # GET: /items/new
   get "/items/new" do
-    erb :"/items/new.html"
+    erb :"/items/new"
   end
 
   # POST: /items
@@ -17,12 +17,12 @@ class ItemsController < ApplicationController
 
   # GET: /items/5
   get "/items/:id" do
-    erb :"/items/show.html"
+    erb :"/items/show"
   end
 
   # GET: /items/5/edit
   get "/items/:id/edit" do
-    erb :"/items/edit.html"
+    erb :"/items/edit"
   end
 
   # PATCH: /items/5
