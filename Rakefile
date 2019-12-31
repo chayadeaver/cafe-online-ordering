@@ -1,6 +1,6 @@
 ENV["SINATRA_ENV"] ||= "development"
 
-task console do
+task :console do
     Pry.start
 end
 
