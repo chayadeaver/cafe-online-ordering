@@ -5,3 +5,6 @@ require './config/environment'
 # end
 
 run ApplicationController
+use OrdersController
+use ItemsController
+use UsersController
