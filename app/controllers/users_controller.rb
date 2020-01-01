@@ -29,7 +29,15 @@ class UsersController < ApplicationController
     erb :"/users/login"
   end
 
-
+  post "/login" do
+    user = User.find_by(email: params[:email])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect to "/items"
+    else
+      redirect to "/login"
+    end
+  end
 
   # GET: /users/5
   get "/users/:id" do
@@ -47,10 +55,10 @@ class UsersController < ApplicationController
   end
 
   # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
+  get "/logout" do
     if logged_in?
       session.clear
-       "You have successfully logged out. Have a nice day!"
+      flash[:message] = "You have successfully logged out. Have a nice day!"
     else
       redirect to "/"
     end
