@@ -35,23 +35,9 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to "/items"
     else
+      flash[:message] = "Invalid entry"
       redirect to "/login"
     end
-  end
-
-  # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show"
-  end
-
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit"
-  end
-
-  # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
   end
 
   # DELETE: /users/5/delete
