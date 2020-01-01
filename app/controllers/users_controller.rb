@@ -11,9 +11,25 @@ class UsersController < ApplicationController
 
   # POST: /users
   post "/signup" do
+    # binding.pry
+    if !params.empty?
+      user = User.create(name: params[:name], email: params[:email], password: params[:password])
+      session[:user_id] = user.id
+      redirect to "/items"
+    else
+      redirect to "/signup"
+    end
     
-    redirect "/users"
   end
+
+  get "/login" do 
+    if logged_in?
+      redirect to "/items"
+    end
+    erb :"/users/login"
+  end
+
+
 
   # GET: /users/5
   get "/users/:id" do
@@ -32,6 +48,12 @@ class UsersController < ApplicationController
 
   # DELETE: /users/5/delete
   delete "/users/:id/delete" do
-    redirect "/users"
+    if logged_in?
+      session.clear
+       "You have successfully logged out. Have a nice day!"
+    else
+      redirect to "/"
+    end
+    redirect "/login"
   end
 end
