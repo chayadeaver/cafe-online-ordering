@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   # GET: /orders
   get "/orders" do
+    @orders = current_user.orders
     erb :"/orders/index"
   end
 

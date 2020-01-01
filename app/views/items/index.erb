@@ -2,4 +2,44 @@
 
 <h2>Cafe Menu</h2>
 
+<div>
+<h3><u>Coffee</u></h3>
+<br>
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "coffee" %>
+        <li><%= item.title %> - $<%= item.price%></li>
+        <br>
+    <% end %>
 
+<% end %>
+</ul>
+</div>
+
+<div>
+<h3><u>Tea</u></h3>
+<br>
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "tea" %>
+        <li><%= item.title %> - $<%= item.price%></li>
+        <br>
+    <% end %>
+
+<% end %>
+</ul>
+</div>
+
+<div>
+<h3><u>Food</u></h3>
+<br>
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "food" %>
+        <li><%= item.title %> - $<%= item.price%></li>
+        <br>
+    <% end %>
+
+<% end %>
+</ul>
+</div>
