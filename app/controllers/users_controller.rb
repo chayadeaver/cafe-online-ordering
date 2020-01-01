@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index"
-  end
 
   # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new"
+  get "/signup" do
+    if logged_in?
+      redirect to "/items"
+    end
+    erb :"/users/signup"
   end
 
   # POST: /users
-  post "/users" do
+  post "/signup" do
+    
     redirect "/users"
   end
 
