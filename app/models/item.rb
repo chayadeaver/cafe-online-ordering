@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
     belongs_to :category
-    has_many :orders
-    has_many :users, through: :orders
+    has_many :item_orders
+    has_many :orders, through: :item_orders
 end

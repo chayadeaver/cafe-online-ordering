@@ -3,6 +3,14 @@
 <h2>Please signup to look at the menu!</h2>
 
 <form action="/signup" method="POST">
+<div>
+<% if flash[:message] %>
+    <%= flash[:message] %>
+
+<% end %>
+<br>
+<br>
+</div>
     <p><label for="name">Name: </label><input type="text" name="name" id="name"></p>
     <p><label for="email">Email: </label><input type="text" name="email" id="email"></p>
     <p><label for="password">Password: </label><input type="password" name="password" id="password"></p>

@@ -1,1 +1,13 @@
-<h1>This is the Model's index page.</h1>
+<h1>My Order History</h1>
+
+<% if @orders.empty? %>
+    <p>You don't have any orders. Please create one <a href="/order/new">here.</a></p>
+<% else %>
+    <ol>
+    <% @orders.each do |order| %>
+        <li>Order Number: <%= order.id %></li>
+        <br>
+    <% end %>
+    </ol>
+<% end %>
+

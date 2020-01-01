@@ -17,6 +17,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect to "/items"
     else
+      flash[:message] = "Invalid entry"
       redirect to "/signup"
     end
     
