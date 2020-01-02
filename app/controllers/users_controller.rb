@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   # POST: /users
   post "/signup" do
     # binding.pry
-    if !params.empty?
-      user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    user = User.new(params)
+    if user.save
       session[:user_id] = user.id
-      redirect to "/items"
+      flash[:message] = "You have successfully created an account."
+      redirect to "/orders/new"
     else
       flash[:message] = "Invalid entry"
       redirect to "/signup"
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
 
   get "/login" do 
     if logged_in?
-      redirect to "/items"
+      redirect to "/"
     end
     erb :"/users/login"
   end
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      flash[:message] = "You are successfully logged in."
       redirect to "/items"
     else
       flash[:message] = "Invalid entry"

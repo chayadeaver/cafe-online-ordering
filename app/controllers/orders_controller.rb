@@ -8,7 +8,10 @@ class OrdersController < ApplicationController
 
   # GET: /orders/new
   get "/orders/new" do
-    
+    @items = Item.all
+    if !logged_in?
+      redirect to "/signup"
+    end
     erb :"/orders/new"
   end
 
