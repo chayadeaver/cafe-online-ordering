@@ -15,7 +15,14 @@
   </head>
   <body>
     <div class="wrapper">
+        <div>
+          <% if flash[:message] %>
+            <%= flash[:message] %>
 
+          <% end %>
+          <br>
+          <br>
+        </div>
         <%= yield %>
 
       <footer class="branding">

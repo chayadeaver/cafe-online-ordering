@@ -1,19 +1,12 @@
 <h2>Cafe Menu</h2>
 <div>
-<% if flash[:message] %>
-    <%= flash[:message] %>
-
-<% end %>
-<br>
-<br>
-</div>
-<div>
 <h3><u>Coffee</u></h3>
 <br>
+<form action="/orders" method="POST">
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "coffee" %>
-        <li><input type="checkbox" name="item_id" id="item_id"><%= item.title %> - $<%= item.price%></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price%></li>
         <br>
     <% end %>
 
@@ -27,7 +20,7 @@
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "tea" %>
-        <li><%= item.title %> - $<%= item.price%></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price%></li>
         <br>
     <% end %>
 
@@ -41,10 +34,12 @@
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "food" %>
-        <li><%= item.title %> - $<%= item.price%></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price%></li>
         <br>
     <% end %>
 
 <% end %>
 </ul>
+<input type="submit" id="submit" value="Add to Order">
+</form>
 </div>

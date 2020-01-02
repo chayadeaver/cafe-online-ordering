@@ -17,7 +17,15 @@ class OrdersController < ApplicationController
 
   # POST: /orders
   post "/orders" do
-    redirect "/orders"
+    # binding.pry
+    order = current_user.orders.build(item_ids: params[:item_id])
+    if order.save
+      flash[:message] = "You have successfully created an order."
+      redirect "/orders/#{order.id}"
+    else
+      flash[:message] = "Please try to create your order again."
+      redirect "/orders/new"
+    end
   end
 
   # GET: /orders/5
