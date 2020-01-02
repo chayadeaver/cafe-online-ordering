@@ -5,7 +5,7 @@
 <% else %>
     <ol>
     <% @orders.each do |order| %>
-        <li>Order Number: <%= order.id %></li>
+        <li><a href="/orders/<%= order.id %>">Order Number: <%= order.id %></a></li>
         <br>
     <% end %>
     </ol>

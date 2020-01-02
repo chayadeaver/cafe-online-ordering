@@ -30,6 +30,9 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5
   get "/orders/:id" do
+    @items = Item.all
+    @order = Order.find_by(params[:id])
+    # binding.pry
     erb :"/orders/show"
   end
 
