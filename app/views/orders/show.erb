@@ -1,7 +1,6 @@
 <h1>My Order</h1>
 <ol>
-<% @order.items.each do |item| %>
-    <li><%= item.item_id.title %> - <%= item.item_id.price%></li>
-<% binding.pry %>
-<% end %>
+<li><%= @order.items.title %></li>
+    
+
 </ol>

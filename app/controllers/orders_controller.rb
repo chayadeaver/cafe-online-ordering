@@ -17,10 +17,11 @@ class OrdersController < ApplicationController
 
   # POST: /orders
   post "/orders" do
-    binding.pry
-    order = current_user.orders.build(title: params[:order][:item][:title], price: params[:order][:item][:price])
+    # binding.pry
+    order = current_user.orders.build(user_id: params[:order][:item])
     if order.save
       flash[:message] = "You have successfully created an order."
+      # binding.pry
       redirect "/orders/#{order.id}"
     else
       flash[:message] = "Please try to create your order again."
@@ -30,8 +31,9 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5
   get "/orders/:id" do
-    @order = Order.find_by(params[:id])
-    
+    redirect to "/login" unless logged_in?
+    @order = Order.find_by(id: params[:id])
+    # binding.pry
     erb :"/orders/show"
   end
 
