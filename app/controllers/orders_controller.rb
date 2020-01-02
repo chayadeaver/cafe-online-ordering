@@ -17,8 +17,8 @@ class OrdersController < ApplicationController
 
   # POST: /orders
   post "/orders" do
-    # binding.pry
-    order = current_user.orders.build(item_ids: params[:item_id])
+    binding.pry
+    order = current_user.orders.build(title: params[:order][:item][:title], price: params[:order][:item][:price])
     if order.save
       flash[:message] = "You have successfully created an order."
       redirect "/orders/#{order.id}"
@@ -30,9 +30,8 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5
   get "/orders/:id" do
-    @items = Item.all
     @order = Order.find_by(params[:id])
-    # binding.pry
+    
     erb :"/orders/show"
   end
 
