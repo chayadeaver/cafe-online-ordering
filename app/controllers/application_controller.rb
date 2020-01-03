@@ -25,5 +25,12 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+    
+    def redirect_if_not_authorized
+      if @order.user != current_user
+        flash[:message] = "This is not your order to edit"
+        redirect to "/orders"
+      end
+    end
   end
 end

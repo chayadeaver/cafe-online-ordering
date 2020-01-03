@@ -43,16 +43,31 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5/edit
   get "/orders/:id/edit" do
-    erb :"/orders/edit"
+    redirect to "/login" unless logged_in?
+    @order = Order.find_by(id: params[:id])
+    @items = Item.all
+    redirect_if_not_authorized
+      erb :"/orders/edit"
   end
 
   # PATCH: /orders/5
   patch "/orders/:id" do
-    redirect "/orders/:id"
+    redirect to "/login" unless logged_in?
+    @order = Order.find_by(id: params[:id])
+    redirect_if_not_authorized
+    if @order.update(item_ids: params[:item_id])
+      @order.save
+      redirect to "/orders/:id"
+    end
+    redirect to "/orders"
   end
 
   # DELETE: /orders/5/delete
-  delete "/orders/:id/delete" do
+  delete "/orders/:id" do
+    redirect to "/login" unless logged_in?
+    @order = Order.find_by(id: params[:id])
+    redirect_if_not_authorized
+    @order.delete
     redirect "/orders"
   end
 end

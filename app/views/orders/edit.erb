@@ -1,1 +1,47 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h2>Cafe Menu</h2>
+<div>
+<h3><u>Coffee</u></h3>
+<br>
+<form action="/orders/<%= @order.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "coffee" %>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>" <%= 'checked' if @order.items.include?(item) %>><%= item.title %> - $<%= item.price %></li>
+        <br>
+    <% end %>
+
+<% end %>
+</ul>
+</div>
+
+<div>
+<h3><u>Tea</u></h3>
+<br>
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "tea" %>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>" <%= 'checked' if @order.items.include?(item) %>><%= item.title %> - $<%= item.price%></li>
+        <br>
+    <% end %>
+
+<% end %>
+</ul>
+</div>
+
+<div>
+<h3><u>Food</u></h3>
+<br>
+<ul>
+<% @items.each do |item| %>
+    <%if item.category.name == "food" %>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>" <%= 'checked' if @order.items.include?(item) %>><%= item.title %> - $<%= item.price%></li>
+        <br>
+    <% end %>
+
+<% end %>
+</ul>
+<input type="submit" id="submit" value="Add to Order">
+</form>
+</div>
+
