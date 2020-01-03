@@ -1,6 +1,10 @@
 <h1>My Order</h1>
 <ol>
-<li><%= @order.items.title %></li>
-    
+    <% @order.items.each do |item| %>
+        <li><%= item.title %> - $<%= item.price %></li>
+        <br>
+    <% end %>
 
+    Total Price: $<%= @order.total_price%>
+    
 </ol>

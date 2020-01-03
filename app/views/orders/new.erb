@@ -6,7 +6,7 @@
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "coffee" %>
-        <li><input type="checkbox" name="order[item][title]" id="<%= item.id %>" value="<%= item.title %>"><input type="hidden" name="order[item][price]" id="<%= item.id %>" value="<%= item.price %>"><%= item.title %> - $ <%= item.price %></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price %></li>
         <br>
     <% end %>
 
@@ -20,7 +20,7 @@
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "tea" %>
-        <li><input type="checkbox" name="order[item][title]" id="<%= item.id %>" value="<%= item.title%>"><input type="hidden" name="order[item][price]" id="<%= item.id %>" value="<%= item.price %>"><%= item.title %> - $ <%= item.price%></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price%></li>
         <br>
     <% end %>
 
@@ -34,7 +34,7 @@
 <ul>
 <% @items.each do |item| %>
     <%if item.category.name == "food" %>
-        <li><input type="checkbox" name="order[item][title]" id="<%= item.id %>" value="<%= item.title %>"><input type="hidden" name="order[item][price]" id="<%= item.id %>" value="<%= item.price %>"><%= item.title %> - $ <%= item.price%></li>
+        <li><input type="checkbox" name="item_id[]" id="<%= item.id %>" value="<%= item.id %>"><%= item.title %> - $<%= item.price%></li>
         <br>
     <% end %>
 

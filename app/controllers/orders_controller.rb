@@ -18,7 +18,11 @@ class OrdersController < ApplicationController
   # POST: /orders
   post "/orders" do
     # binding.pry
-    order = current_user.orders.build(user_id: params[:order][:item])
+    order = current_user.orders.build(item_ids: params[:item_id])
+    # params[:order][:item].each do |i|
+    #   Item.new(i)
+    # end
+    # @items = Item.all
     if order.save
       flash[:message] = "You have successfully created an order."
       # binding.pry
