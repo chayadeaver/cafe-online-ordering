@@ -2,11 +2,7 @@ class OrdersController < ApplicationController
 
   # GET: /orders
   get "/orders" do
-<<<<<<< HEAD
-    redirect to "/login" unless logged_in?
-=======
     redirect_if_not_logged_in
->>>>>>> master
     @orders = current_user.orders
     erb :"/orders/index"
   end
@@ -23,10 +19,7 @@ class OrdersController < ApplicationController
     # binding.pry
     
     order = current_user.orders.build(item_ids: params[:item_id])
-<<<<<<< HEAD
     
-=======
->>>>>>> master
     if order.save
       flash[:message] = "You have successfully created an order."
       # binding.pry
