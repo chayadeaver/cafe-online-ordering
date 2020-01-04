@@ -2,30 +2,38 @@ class OrdersController < ApplicationController
 
   # GET: /orders
   get "/orders" do
+<<<<<<< HEAD
+    redirect to "/login" unless logged_in?
+=======
     redirect_if_not_logged_in
+>>>>>>> master
     @orders = current_user.orders
     erb :"/orders/index"
   end
 
   # GET: /orders/new
   get "/orders/new" do
+    redirect to "/login" unless logged_in?
     @items = Item.all
-    if !logged_in?
-      redirect to "/signup"
-    end
     erb :"/orders/new"
   end
 
   # POST: /orders
   post "/orders" do
     # binding.pry
+    
     order = current_user.orders.build(item_ids: params[:item_id])
+<<<<<<< HEAD
+    
+=======
+>>>>>>> master
     if order.save
       flash[:message] = "You have successfully created an order."
       # binding.pry
       redirect "/orders/#{order.id}"
     else
-      flash[:message] = "Please try to create your order again."
+      # binding.pry
+      flash[:message] = order.errors.full_messages
       redirect "/orders/new"
     end
   end
@@ -64,7 +72,8 @@ class OrdersController < ApplicationController
     redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
-    @order.delete
+    @order.destroy
+    # binding.pry
     redirect "/orders"
   end
 end
