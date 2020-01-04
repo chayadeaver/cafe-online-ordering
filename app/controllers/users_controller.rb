@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:message] = "You have successfully created an account."
-      redirect to "/orders/new"
+      redirect to "/orders"
     else
-      flash[:message] = "Invalid entry. Please try again."
+      flash[:message] = user.errors.full_messages
       redirect to "/signup"
     end
     
@@ -36,9 +36,9 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:message] = "You are successfully logged in."
-      redirect to "/orders/new"
+      redirect to "/orders"
     else
-      flash[:message] = "Invalid entry. Please try again."
+      flash[:message] = user.errors.full_messages
       redirect to "/login"
     end
   end

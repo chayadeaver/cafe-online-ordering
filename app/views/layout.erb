@@ -17,8 +17,11 @@
     <div class="wrapper">
         <div>
           <% if flash[:message] %>
-            <%= flash[:message] %>
+            <% flash[:message].each do |error| %>
+            <p><%= error %></p>
 
+
+            <% end %>
           <% end %>
           <br>
           <br>
