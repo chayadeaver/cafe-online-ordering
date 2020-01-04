@@ -25,6 +25,11 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+
+    def redirect_if_not_logged_in
+      redirect to "/login" unless logged_in?
+      flash[:message] = "Please log in to continue"
+    end
     
     def redirect_if_not_authorized
       if @order.user != current_user

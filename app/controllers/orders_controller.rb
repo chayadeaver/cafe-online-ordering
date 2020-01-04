@@ -2,7 +2,11 @@ class OrdersController < ApplicationController
 
   # GET: /orders
   get "/orders" do
+<<<<<<< HEAD
     redirect to "/login" unless logged_in?
+=======
+    redirect_if_not_logged_in
+>>>>>>> master
     @orders = current_user.orders
     erb :"/orders/index"
   end
@@ -19,7 +23,10 @@ class OrdersController < ApplicationController
     # binding.pry
     
     order = current_user.orders.build(item_ids: params[:item_id])
+<<<<<<< HEAD
     
+=======
+>>>>>>> master
     if order.save
       flash[:message] = "You have successfully created an order."
       # binding.pry
@@ -33,7 +40,7 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5
   get "/orders/:id" do
-    redirect to "/login" unless logged_in?
+    redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     # binding.pry
     erb :"/orders/show"
@@ -41,7 +48,7 @@ class OrdersController < ApplicationController
 
   # GET: /orders/5/edit
   get "/orders/:id/edit" do
-    redirect to "/login" unless logged_in?
+    redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     @items = Item.all
     redirect_if_not_authorized
@@ -50,7 +57,7 @@ class OrdersController < ApplicationController
 
   # PATCH: /orders/5
   patch "/orders/:id" do
-    redirect to "/login" unless logged_in?
+    redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
     if @order.update(item_ids: params[:item_id])
@@ -62,7 +69,7 @@ class OrdersController < ApplicationController
 
   # DELETE: /orders/5/delete
   delete "/orders/:id" do
-    redirect to "/login" unless logged_in?
+    redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
     @order.destroy

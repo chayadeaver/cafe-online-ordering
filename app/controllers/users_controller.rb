@@ -36,7 +36,11 @@ class UsersController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:message] = "You are successfully logged in."
+<<<<<<< HEAD
       redirect to "/orders"
+=======
+      redirect to "/"
+>>>>>>> master
     else
       flash[:message] = user.errors.full_messages
       redirect to "/login"
