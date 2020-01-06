@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       flash[:message] = "You have successfully created an account."
       redirect to "/orders"
     else
-      flash[:message] = user.errors.full_messages
+      flash[:error] = user.errors.full_messages
       redirect to "/signup"
     end
     
@@ -38,8 +38,13 @@ class UsersController < ApplicationController
       flash[:message] = "You are successfully logged in."
       redirect to "/"
     else
-      flash[:message] = user.errors.full_messages
-      redirect to "/login"
+      if !user
+        user = User.new(email: params[:email], password: params[:password])
+        user.valid?
+      end
+        flash[:error] = user.errors.full_messages
+        redirect to "/login"
+    
     end
   end
 
