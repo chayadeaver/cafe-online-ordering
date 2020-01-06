@@ -9,24 +9,19 @@ class OrdersController < ApplicationController
 
   # GET: /orders/new
   get "/orders/new" do
-    redirect to "/login" unless logged_in?
+    redirect_if_not_logged_in
     @items = Item.all
     erb :"/orders/new"
   end
 
   # POST: /orders
   post "/orders" do
-    # binding.pry
-    
     order = current_user.orders.build(item_ids: params[:item_id])
-    
     if order.save
       flash[:message] = "You have successfully created an order."
-      # binding.pry
       redirect "/orders/#{order.id}"
     else
-      # binding.pry
-      flash[:message] = order.errors.full_messages
+      flash[:error] = order.errors.full_messages
       redirect "/orders/new"
     end
   end
