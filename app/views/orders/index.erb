@@ -4,8 +4,8 @@
     <p>You don't have any orders. Please create one <a href="/orders/new">here.</a></p>
 <% else %>
     <ol>
-    <% @orders.each do |order| %>
-        <li><a href="/orders/<%= order.id %>">Order Number: <%= order.id %></a></li>
+    <% @orders.each.with_index(1) do |order, i| %>
+        <li><a href="/orders/<%= order.id %>">Order No.<%= i %> </a></li>
         <br>
     <% end %>
     </ol>
