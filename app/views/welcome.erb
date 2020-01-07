@@ -1,5 +1,9 @@
 <div class="container">
-  <header><h1>Chaya's Cafe</h1></header>
+  <header class="break">
+  <h1>Chaya's Cafe</h1>
+  </header>
+  <br>
+  <br>
   <div class="topnav">
 
     
@@ -9,8 +13,6 @@
       <a href="/signup" class="button4" style="background-color:#4e9af1">Sign Up</a>
       <a href="/login" class="button4" style="background-color:#4e9af1">Login</a>
     <% else %>
-      <h3 class="current_user">Hi, <%= current_user.name %></h3>
-
       <a href="/orders/new" class="button4" style="background-color:#4e9af1">Create an Order</a>
       <a href="/orders" class="button4" style="background-color:#4e9af1">My Orders</a>
     
