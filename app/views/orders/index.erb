@@ -1,11 +1,13 @@
+<header>
 <h1>My Order History</h1>
+</header>
 
 <% if @orders.empty? %>
     <p>You don't have any orders. Please create one <a href="/orders/new">here.</a></p>
 <% else %>
     <ol>
     <% @orders.each.with_index(1) do |order, i| %>
-        <li><a href="/orders/<%= order.id %>">Order No.<%= i %> </a></li>
+        <li><a href="/orders/<%= order.id %>" class="button4" style="background-color:#4e9af1">Order No.<%= i %> </a></li>
         <br>
     <% end %>
     </ol>

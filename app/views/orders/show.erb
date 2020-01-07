@@ -1,4 +1,8 @@
+<header>
 <h1>My Order</h1>
+</header>
+<br>
+<br>
 <ol>
     <% @order.items.each do |item| %>
         <li><%= item.title %> - $<%= item.price %></li>
