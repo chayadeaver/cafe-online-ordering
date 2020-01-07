@@ -15,6 +15,5 @@ Welcome to Cafe Online Ordering! This app allows you to create an account. Once 
 
 
 ## License
-MIT License
-```https://github.com/chayadeaver/cafe-online-ordering/blob/master/LICENSE
-```
+[MIT]
+(https://github.com/chayadeaver/cafe-online-ordering/blob/master/LICENSE)
