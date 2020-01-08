@@ -9,3 +9,5 @@ require './app/controllers/application_controller'
 # require 'sinatra/flash'
 require_all 'app'
 require 'securerandom'
+require 'dotenv'
+

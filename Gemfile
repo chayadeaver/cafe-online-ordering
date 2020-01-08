@@ -11,6 +11,7 @@ gem 'tux'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'require_all'
 gem 'rake'
+gem 'dotenv', '~> 2.1', '>= 2.1.1'
 
 group :test do
   gem 'rspec'
