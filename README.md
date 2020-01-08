@@ -4,7 +4,7 @@ Welcome to Cafe Online Ordering! This app allows you to create an account. Once 
 
 ## Installation
 
-
+To view the app, go [here](https://cafe-online-ordering.herokuapp.com/)
 
 
 ## Usage
