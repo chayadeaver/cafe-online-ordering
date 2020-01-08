@@ -43,11 +43,11 @@ class UsersController < ApplicationController
         user = User.new(email: params[:email], password: params[:password])
         user.valid?
       end
-      
-        flash[:error] = user.errors.full_messages
-        
+      flash[:error] = user.errors.full_messages
+        # binding.pry
         redirect to "/login"
     end
+
     
   end
 
