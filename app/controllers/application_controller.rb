@@ -1,5 +1,5 @@
 require './config/environment'
-require 'securerandom'
+
 # require 'sinatra/flash'
 
 
@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     register Sinatra::Flash
-    set :session_secret, SecureRandom.hex(64)
+    set :session_secret, ENV.fetch('SESSION_SECRET') { SecureRandom.hex(64) }
     
   end
 

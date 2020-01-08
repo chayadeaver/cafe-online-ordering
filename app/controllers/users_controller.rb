@@ -33,7 +33,9 @@ class UsersController < ApplicationController
   post "/login" do
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
+      
       session[:user_id] = user.id
+      # binding.pry
       flash[:message] = "You are successfully logged in."
       redirect to "/"
     else
@@ -41,10 +43,12 @@ class UsersController < ApplicationController
         user = User.new(email: params[:email], password: params[:password])
         user.valid?
       end
+      
         flash[:error] = user.errors.full_messages
+        
         redirect to "/login"
-    
     end
+    
   end
 
   # DELETE: /users/5/delete

@@ -9,6 +9,7 @@ To view the app, go [here](https://cafe-online-ordering.herokuapp.com/)
 
 ## Usage
 
+To use the app, you would need to create an account using your name, email, and password.
 
 
 ## Contributing
