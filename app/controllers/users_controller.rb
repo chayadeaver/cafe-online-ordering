@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       
       session[:user_id] = user.id
       # binding.pry
-      flash[:message] = "You are successfully logged in."
+      flash.next[:message] = "You are successfully logged in."
       redirect to "/"
     else
       if !user
