@@ -102,7 +102,15 @@ header.break {
   border-bottom: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
-}
+  }
+  .flash {
+    border: 2px solid rgb(124, 4, 4);
+    border-radius: 10px;
+    background-color: rgb(245, 186, 186);
+    padding: 10px;
+    margin: 10px;
+  }
+
 }
 
 @media screen and (max-width: 600px) {
