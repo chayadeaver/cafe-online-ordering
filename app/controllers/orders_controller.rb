@@ -48,6 +48,7 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
     if @order.update(item_ids: params[:item_id])
+      flash[:message] = "You have successfully edited your order."
       redirect to "/orders/#{@order.id}"
     end
     redirect to "/orders"
@@ -59,7 +60,7 @@ class OrdersController < ApplicationController
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
     @order.destroy
-    # binding.pry
+    flash[:message] = "You have successfully deleted your order."
     redirect "/orders"
   end
 end
