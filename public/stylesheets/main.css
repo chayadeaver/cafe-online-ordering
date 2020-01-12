@@ -105,7 +105,16 @@ header.break {
     text-align: center;
     font-family: 'Roboto', sans-serif;
   }
-  .flash {
+
+  .message {
+    border: 2px solid rgb(21, 83, 2);
+    border-radius: 10px;
+    background-color: rgb(82, 180, 82);
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .error {
     border: 2px solid rgb(124, 4, 4);
     border-radius: 10px;
     background-color: rgb(245, 186, 186);
