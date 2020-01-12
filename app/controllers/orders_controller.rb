@@ -30,7 +30,6 @@ class OrdersController < ApplicationController
   get "/orders/:id" do
     redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
-    # binding.pry
     erb :"/orders/show"
   end
 
@@ -48,7 +47,6 @@ class OrdersController < ApplicationController
     redirect_if_not_logged_in
     @order = Order.find_by(id: params[:id])
     redirect_if_not_authorized
-    
     if @order.update(item_ids: params[:item_id])
       redirect to "/orders/#{@order.id}"
     end
