@@ -1,5 +1,5 @@
 <header class="break">
-<h1>My Order</h1>
+<h1><%= current_user.name %>'s Order</h1>
 </header>
 <br>
 <br>
@@ -13,7 +13,7 @@
     <br>
     <br>
 
-    <p><a href="/orders/<%= @order.id %>/edit" class="button4" style="background-color:#4e9af1">Edit Your Order</a></p>
+    <p><a href="/orders/<%= @order.id %>/edit" class="button4" style="background-color:#69BBC9">Edit Your Order</a></p>
     <form action="/orders/<%= @order.id %>" method="post">
         <input id="hidden" type="hidden" name="_method" value="delete">
         <button type="submit" class="cool-button" style="background-color:#69BBC9">Delete Order</button>
