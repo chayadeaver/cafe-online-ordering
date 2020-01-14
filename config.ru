@@ -5,6 +5,7 @@ run ApplicationController
 use OrdersController
 use ItemsController
 use UsersController
+use SessionsController
 
 use Rack::Session::Cookie,  :key => 'rack.session',
                             :path => '/',
