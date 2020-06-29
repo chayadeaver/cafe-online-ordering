@@ -1,22 +1,37 @@
 # Cafe Online Ordering
 
-Welcome to Cafe Online Ordering! This app allows you to create an account. Once logged in, you can view the cafe menu and start your order. People who don't have an account can still view the menu but can't start an order. Once logged in, users are able to start an order, edit an order, and delete their orders. 
+A web application using Sinatra framework with Ruby that allows for online ordering
 
-## Installation
+![sinatra-project-demo](app/assets/images/sinatra-project-demo.gif)
 
-To view the app, go [here](https://cafe-online-ordering.herokuapp.com/)
+[Demo](https://www.loom.com/share/3359523149d84c0da7f647afd8b954d1) | [Deployed app](https://cafe-online-ordering.herokuapp.com/) 
 
+## Features
 
-## Usage
+* Allows for signup/signin using authenicated password
+* Once signed in, user can create a new order by adding items to order
+* User can view all the orders they've created and delete orders
 
-To use the app, you would need to create an account using your name, email, and password. Once an account is created, you will be taken to a page that displays all your orders. If there are no orders, you will be given a link to create one. After selecting to create an order, you will be taken to an order form. After selecting the items to add to order and submitting the order, you will be taken to the page that shows the items in the order you created. From here, you can edit your order, delete items off order, and add other items to your order. Once your order is updated, you will be taken back to the current order page. From the current order page, you can delete your order.
+## Tech Used
 
+* Ruby [2.6.1]
+* Sinatra - web framework with MVC
+* Postgresql - database
+* Bcrypt - gem for encryption
+* Dotenv - stores session secret
+* Sinatra-flash - generate flash messages
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## To Install
 
-Please make sure to update tests as appropriate.
-
-## License
-[MIT]
-(https://github.com/chayadeaver/cafe-online-ordering/blob/master/LICENSE)
+* Clone this repo to local machine `git clone <this-repo>`
+* Cd into project directory and run `bundle install` to install dependencies
+* Make sure Postgres app is running. To install Postgres app, go [here](https://www.postgresql.org/download/)
+* Run `rake db:create` to create a database
+* Run `rake db:migrate` to create tables in database
+* Run `rake db:seed` to generate seed data
+* Run `rake console` to open up pry console
+* Run `SecureRandom.hex(64)` and copy the return value as a string
+* Create a `.env` file in root directory
+* Go into `.env` and write `export SESSION_SECRET=<paste SecureRandom.hex value here>` 
+* Go to `.gitignore` and make sure `.env` has been added
+* Run `shotgun` to run server
